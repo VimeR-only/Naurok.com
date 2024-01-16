@@ -1,0 +1,17 @@
+C:\Users\tosha\source\repos\naurok.com\naurok.com\bin\Debug\net8.0\naurok.com.exe
+C:\Users\tosha\source\repos\naurok.com\naurok.com\bin\Debug\net8.0\naurok.com.deps.json
+C:\Users\tosha\source\repos\naurok.com\naurok.com\bin\Debug\net8.0\naurok.com.runtimeconfig.json
+C:\Users\tosha\source\repos\naurok.com\naurok.com\bin\Debug\net8.0\naurok.com.dll
+C:\Users\tosha\source\repos\naurok.com\naurok.com\bin\Debug\net8.0\naurok.com.pdb
+C:\Users\tosha\source\repos\naurok.com\naurok.com\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.csproj.AssemblyReference.cache
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.AssemblyInfoInputs.cache
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.AssemblyInfo.cs
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.csproj.CoreCompileInputs.cache
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.csproj.CopyComplete
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.dll
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\refint\naurok.com.dll
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.pdb
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\naurok.com.genruntimeconfig.cache
+C:\Users\tosha\source\repos\naurok.com\naurok.com\obj\Debug\net8.0\ref\naurok.com.dll

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jo17LsxffxEdq2lcm10DAwTi8h6auxvqfODSBGqtQKk/U+E1vFaynmtj7yViLfB/wekUuS5ExxtKQMIq503AZA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tosha\\source\\repos\\naurok.com\\naurok.com\\naurok.com.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tosha\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
