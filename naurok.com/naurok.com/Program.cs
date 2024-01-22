@@ -1,4 +1,4 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 using naurok.com.models;
 using Newtonsoft.Json;
 
@@ -6,72 +6,67 @@ namespace naurok.com
 {
     internal class Program
     {
+        private static readonly HttpClient client = new HttpClient();
         static async Task<string> GetTestId(string url)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                try
+                string htmlCode = await client.GetStringAsync(url);
+                string[] lines = htmlCode.Split('\n');
+
+                Regex regTest = new Regex(@"ng-app=""([^""]*)""");
+
+                foreach (var line in lines)
                 {
-                    string htmlCode = await client.GetStringAsync(url);
-                    string[] lines = htmlCode.Split('\n');
+                    if (!regTest.Match(line).Success) continue;
 
-                    Regex regTest = new Regex(@"ng-app=""([^""]*)""");
+                    Regex regId = new Regex(@"init\(\d+,\s*(\d+),\s*\d+\)");
 
-                    foreach (var line in lines)
+                    Match Id = regId.Match(line);
+
+                    if (Id.Success)
                     {
-                        if (!regTest.Match(line).Success) continue;
-
-                        Regex regId = new Regex(@"init\(\d+,\s*(\d+),\s*\d+\)");
-
-                        Match Id = regId.Match(line);
-
-                        if (Id.Success)
-                        {
-                            return Id.Groups[1].Value;
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        return Id.Groups[1].Value;
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
-                catch (HttpRequestException e)
-                {
-                    Console.WriteLine($"Опомилка під час виконання HTTP-запиту: {e.Message}.");
-                    throw;
-                }
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Опомилка під час виконання HTTP-запиту: {e.Message}.");
+                throw;
             }
             return "";
         }
 
         static async Task<List<object>> GetQuest(string testid)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                try
+                string json = await client.GetStringAsync("https://naurok.com.ua/api2/test/sessions/" + testid);
+
+                List<object> arrayQuest = new List<object>();
+                Rootobject? quest = JsonConvert.DeserializeObject<Rootobject>(json);
+
+                foreach (var data in quest.questions)
                 {
-                    string json = await client.GetStringAsync("https://naurok.com.ua/api2/test/sessions/" + testid);
+                    arrayQuest.Add(data.GetQuestion());
 
-                    List<object> arrayQuest = new List<object>();
-                    Rootobject? quest = JsonConvert.DeserializeObject<Rootobject>(json);
-
-                    foreach (var data in quest.questions)
+                    foreach (var item in data.options)
                     {
-                        arrayQuest.Add(data.GetQuestion());
-
-                        foreach (var item in data.options)
-                        {
-                            arrayQuest.Add(item.GetQuestion());
-                        }
-                        arrayQuest.Add(" ");
+                        arrayQuest.Add(item.GetQuestion());
                     }
+                    arrayQuest.Add(" ");
+                }
 
-                    return arrayQuest;
-                }
-                catch (HttpRequestException e)
-                {
-                    Console.WriteLine($"Помилка під час виконання Get запиту JSON: {e.Message}.");
-                }
+                return arrayQuest;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Помилка під час виконання Get запиту JSON: {e.Message}.");
             }
             return null;
         }
